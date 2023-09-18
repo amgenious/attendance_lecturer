@@ -12,7 +12,7 @@ export const SignupScreenindex = () => {
         e.preventDefault();
 
         try{
-            await axios.post("http://localhost:4000/lecturersignup",{
+            await axios.post("https://attendance-backend-gsu3.onrender.com/lecturersignup",{
                 username,email,password
             })
             .then(res =>{

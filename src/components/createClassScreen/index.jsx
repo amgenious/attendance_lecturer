@@ -16,7 +16,7 @@ export const CreateClassindex = () => {
   e.preventDefault();
 
   try {
-    const response = await axios.post("http://localhost:4000/createclass", {
+    const response = await axios.post("https://attendance-backend-gsu3.onrender.com/createclass", {
       classname: classname,
       coursename: coursename,
       level: level,

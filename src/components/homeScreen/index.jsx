@@ -8,7 +8,7 @@ export const HomeScreenindex = () => {
   const [klass, setKlass] = useState([])
 
   useEffect(() => {
-    axios.get("http://localhost:4000/classes")
+    axios.get("https://attendance-backend-gsu3.onrender.com/classes")
     .then(response => setKlass(response.data))
     .catch(err => console.log(err))
        setTimeout(() => {

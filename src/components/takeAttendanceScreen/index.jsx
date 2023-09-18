@@ -9,7 +9,7 @@ export const TakeAttendanceindex = () => {
   const classid = useParams()
 
   useEffect(() => {
-    axios.get("http://localhost:4000/takeattendance/"+[classid.id])
+    axios.get("https://attendance-backend-gsu3.onrender.com/takeattendance/"+[classid.id])
     .then(response => setKlass(response.data))
     .catch(err => console.log(err))
     },[ ])
@@ -22,7 +22,7 @@ export const TakeAttendanceindex = () => {
     e.preventDefault();
   
     try {
-      const response = await axios.post("http://localhost:4000/setattendance", {
+      const response = await axios.post("https://attendance-backend-gsu3.onrender.com/setattendance", {
         uniquecode: uniquecode,
         time: time
       }, {

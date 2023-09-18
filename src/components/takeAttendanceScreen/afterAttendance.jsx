@@ -13,7 +13,7 @@ export const AfterAttendance = () => {
     e.preventDefault();
   
     try {
-      const response = await axios.post("http://localhost:4000/getpdf", {
+      const response = await axios.post("https://attendance-backend-gsu3.onrender.com/getpdf", {
         uniquecode: uniquecode,
       }, {
         headers: {

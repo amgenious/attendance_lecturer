@@ -1,37 +1,61 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
+import React,{useState, useEffect} from 'react'
 import { Navbar } from '../shared/Navbar'
+import axios from 'axios'
+import { Link, } from 'react-router-dom'
 
 export const AfterAttendance = () => {
+  
+  const [klass, setKlass] = useState('')
+
+  const [uniquecode, setUniqueCode] = useState('')
+
+  async function submit(e) {
+    e.preventDefault();
+  
+    try {
+      const response = await axios.post("http://localhost:4000/getpdf", {
+        uniquecode: uniquecode,
+      }, {
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json'
+        }
+      });
+  
+      if (data) {
+        response => setKlass(response.data)
+      
+      } else if (response.data === "notcreated") {
+        alert('Class not created');
+      }
+    } catch (error) {
+      console.error('Error creating class:', error);
+    }
+  }
+
+
   return (
  <>
   <div className="flex flex-col h-screen">
         <Navbar />
         <div className="pt-[4.5rem] p-2">
-          <h2 className="text-2xl">Take Attendance</h2>
+          <h2 className="text-2xl">Attendance</h2>
           <hr className="mt-2"></hr>
           <div className="mt-2">
             <form className="flex flex-col justify-center items-center">
             <div className='flex justify-center'>
        <div className='w-[350px]'>
-        <div className='w-full border h-fit mb-2 text-white bg-gray-600 p-4'>
-            <p>Class Name :</p>
-            <p>Level :</p>
-            <p>Course Name :</p>
-            <div className='flex justify-between mt-4'>
-            <div className='flex flex-col text-center'>
-            <i className="fa-solid fa-circle-xmark"></i>
-                <small>Stop timer</small>    
-                </div>
-                <div className='flex flex-col text-center'>
-                <i className="fa-solid fa-file-pdf"></i>
-                <Link to="/takeattendance"><small>Get PDF</small></Link>    
-                </div>
-            </div>
-        </div>
+        <form method='POST' className='text-center'>
+          <input
+          onChange={(e)=>{setUniqueCode(e.target.value)}}
+          className="w-full h-[35px] border-2 p-3 bg-gray-600 text-white placeholder:text-gray mb-6 mt-3" 
+          placeholder='enter unique number to view attended students'/>
+          <button className="px-8 py-4 bg-black text-white w-fit rounded-xl cursor-pointer hover:bg-white hover:text-black hover:shadow-lg">Get Students</button>
+          </form>
        </div>
        </div>
             </form>
+       <p className='text-center mt-5'>{klass.indexnumber}</p>
           </div>
         </div>
       </div>

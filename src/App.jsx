@@ -19,7 +19,7 @@ function App() {
       <Route path='/home' element={<HomeScreenindex />} />
       <Route path='/createclass' element={<CreateClassindex />} />
       <Route path='/editclass' element={<EditScreenindex />} />
-      <Route path='/takeattendance' element={<TakeAttendanceindex />}/>
+      <Route path='/takeattendance/:id' element={<TakeAttendanceindex />}/>
       <Route path='/afterattendance' element={<AfterAttendance />}/>
      </Routes>
      </BrowserRouter>

@@ -35,16 +35,13 @@ export const HomeScreenindex = () => {
           ) : (
             klass.map((item) =>(
               <div key={item._id} className='w-full border h-fit mb-2 text-white bg-gray-600 p-4'>
-            <p>Class Name :{item.classname}</p>
+            <p>Class Name : {item.classname}</p>
             <p>Level : {item.level}</p>
-            <p>Course Name :{item.coursename}</p>
-            <p>Number of Students :{item.numberofstudents}</p>
-            <p>Lecturer's Name :{item.lecturername}</p>
+            <p>Course Name : {item.coursename}</p>
+            <p>Number of Students : {item.numberofstudents}</p>
+            <p>Lecturer's Name : {item.lecturername}</p>
             <div className='flex justify-between mt-4'>
-                <div className='flex flex-col text-center'>
-                <i className="fa-solid fa-trash-can"></i>
-                <small>Delete</small>    
-                </div>
+                
                 <div className='flex flex-col text-center'>
                 <i className="fa-solid fa-pen-to-square"></i>
                 <Link to="/editclass"><small>Edit</small></Link>    

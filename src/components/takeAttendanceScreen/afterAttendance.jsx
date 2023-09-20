@@ -50,7 +50,7 @@ export const AfterAttendance = () => {
           onChange={(e)=>{setUniqueCode(e.target.value)}}
           className="w-full h-[35px] border-2 p-3 bg-gray-600 text-white placeholder:text-gray mb-6 mt-3" 
           placeholder='enter unique number to view attended students'/>
-          <button className="px-8 py-4 bg-black text-white w-fit rounded-xl cursor-pointer hover:bg-white hover:text-black hover:shadow-lg">Get Students</button>
+          <button className="px-8 py-4 bg-black text-white w-fit rounded-xl cursor-pointer hover:bg-white hover:text-black hover:shadow-lg" onClick={submit}>Get Students</button>
           </form>
        </div>
        </div>

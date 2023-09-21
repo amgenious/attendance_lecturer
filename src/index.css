@@ -12,3 +12,8 @@
   scroll-behavior: smooth;
   overflow-x: inherit;
 }
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}

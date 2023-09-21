@@ -5,20 +5,20 @@ import { Link, } from 'react-router-dom'
 
 export const AfterAttendance = () => {
   const [query, setQuery] = useState('');
-  const [quer, setQuer] = useState('');
+ 
   const [results, setResults] = useState([]);
-  const [results1, setResults1] = useState([]);
+
   
   async function submit(e) {
     e.preventDefault();
     try {     
-      const response = await axios.get("https://attendance-backend-gsu3.onrender.comsearchpdf?q="+[query]);
+      const response = await axios.get("https://attendance-backend-gsu3.onrender.com/searchpdf?q="+[query]);
       setResults(response.data);
     } catch (error) {
       console.error('Error creating class:', error);
     }
   }
-
+ 
   return (
  <>
   <div className="flex flex-col h-screen">
@@ -41,9 +41,26 @@ export const AfterAttendance = () => {
        </div>
        </div>
             </div>
-       <p className='text-center mt-5 text-black' onChange={(e)=>{setQuery(e.target.value)}}> {results.map((result) => (
-         <Link to={'/'}><li key={result._id}>{result.indexnumber}</li></Link> 
-        ))}</p>
+          <table className='text-center mt-5 text-black'>
+            <thead>
+            <th>index number from the forms</th>
+            <th>index number from the model</th>
+            
+            </thead>
+         {results.map((result) => (
+          <>
+            <tr>
+              <td key={result._id} 
+         >{result.indexnumber} 
+        </td>
+              <td >{result.indexnumber} 
+        </td>
+            </tr>
+         
+         </>
+        ))}
+        </table>
+        <p className='bg-green-600 mt-4 text-center' onClick={window.print}>get pdf</p>
           </div>
         </div>
       </div>

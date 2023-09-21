@@ -5,12 +5,14 @@ import { Link, } from 'react-router-dom'
 
 export const AfterAttendance = () => {
   const [query, setQuery] = useState('');
+  const [quer, setQuer] = useState('');
   const [results, setResults] = useState([]);
+  const [results1, setResults1] = useState([]);
   
   async function submit(e) {
     e.preventDefault();
     try {     
-      const response = await axios.get("https://attendance-backend-gsu3.onrender.com/searchpdf");
+      const response = await axios.get("https://attendance-backend-gsu3.onrender.comsearchpdf?q="+[query]);
       setResults(response.data);
     } catch (error) {
       console.error('Error creating class:', error);
@@ -30,6 +32,7 @@ export const AfterAttendance = () => {
        <div className='w-[350px]'>
         <form method='GET' className='text-center'>
           <input
+          value={query}
           onChange={(e)=>{setQuery(e.target.value)}}
           className="w-full h-[35px] border-2 p-3 bg-gray-600 text-white placeholder:text-gray mb-6 mt-3" 
           placeholder='enter unique number to view attended students'/>

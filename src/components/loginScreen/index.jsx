@@ -19,11 +19,13 @@ export const LoginScreenindex = () => {
 
         try{
             await axios.post("https://attendance-backend-gsu3.onrender.com/lecturerlogin",{
-               username,email,password
+               username:username,
+               email:email,
+               password:password
             })
             .then(res =>{
                 if(res.data="exist"){
-                    history('/home',{state:{id:username}})
+                    history('/home')
                 }
                 else if(res.data="notexist"){
                     alert("Wrong Credentials")

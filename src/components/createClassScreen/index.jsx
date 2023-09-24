@@ -73,14 +73,13 @@ export const CreateClassindex = () => {
                 type="number"
                 required
               />
-              <input
-              onChange={(e)=>{setLevel(e.target.value)}}
-              name='level'
-                className="w-[350px] h-[35px] border-2 p-6 bg-gray-600 text-white placeholder:text-gray mb-6 mt-3"
-                placeholder="Level"
-                type="text"
-                required
-              />
+                <select id="level" onChange={(e)=>{setLevel(e.target.value)}} className="border-2 text-white bg-gray-600 w-[350px] h-[35px]">
+                  <option value="" disabled>Choose level</option>
+                  <option value="L100">L1OO</option>
+                  <option value="L200">L2OO</option>
+                  <option value="L300">L3OO</option>
+                  <option value="L400">L4OO</option>
+                  </select>
               <input
               onChange={(e)=>{setLectureName(e.target.value)}}
               name='lecturername'

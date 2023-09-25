@@ -14,7 +14,9 @@ export const AfterAttendance = () => {
     try {     
       const response = await axios.get("https://attendance-backend-gsu3.onrender.com/searchpdf?q="+[query]);
       setResults(response.data);
-      
+      setTimeout(() => {
+        setIsLoading(false);
+      }, 2000);
     } catch (error) {
       console.error('Error creating class:', error);
     }
@@ -42,7 +44,7 @@ export const AfterAttendance = () => {
        </div>
        </div>
             </div>
-          <table className='text-center mt-5 text-black'>
+          <table className='text-center mt-5 text-black w-full'>
             <thead>
             <th>index number from the forms</th>
             <th>index number from the model</th>

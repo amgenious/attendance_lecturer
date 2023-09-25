@@ -13,7 +13,7 @@ export const Navbar = () => {
     <div  className={`z-50 mt-2 2xl:block ${open ? 'flex':'hidden'}`}>
         <ol className='flex'>
             <li className='mr-2'><Link to="/home">Home</Link></li>
-            <li><a href="#">Logout</a></li>
+            <li><Link to="/">Logout</Link></li>
         </ol>
     </div>
         </div>

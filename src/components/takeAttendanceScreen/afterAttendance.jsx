@@ -5,7 +5,7 @@ import { Link, } from 'react-router-dom'
 
 export const AfterAttendance = () => {
   const [query, setQuery] = useState('');
- 
+  const [isLoading, setIsLoading] = useState(true);
   const [results, setResults] = useState([]);
 
   
@@ -49,7 +49,11 @@ export const AfterAttendance = () => {
             <th>Date and Time</th>
             
             </thead>
-         {results.map((result) => (
+         {
+          isLoading ? (
+            <p><b>Loading students info, Please wait</b></p>
+          ) :
+         results.map((result) => (
           <>
             <tr>
               <td key={result._id} 
